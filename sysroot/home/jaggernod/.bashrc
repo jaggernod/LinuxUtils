@@ -59,9 +59,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    #PS1='\n\[\e[36;40m\]\u\[\e[0m\]@\[\e[1;34m\]\h\[\e[0m\] `pwd` \[\e[32;40m\]\W \[\e[0m\]\$ '
-    PS1='\n\[\e[36;40m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] \[\e[32;40m\]`pwd` \[\e[0m\]\n\$ '
+    PS1='\n\[\e[36;40m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] \[\e[32;40m\]`pwd` \[\e[0m\]$(__git_ps1 " (%s)")\n\$ '
     ;;
 *)
     ;;
@@ -83,6 +81,10 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+#alias update='sudo apt-get update -f && sudo apt-get dist-upgrade -f'
+alias shutdown='echo "I have disabled shutdown command as this is SERVER. If you really need to shutdown just run the command directly."'
+alias q='cv'
+alias sshw="ssh -Y jaggernod@wymiatacz"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
